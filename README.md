@@ -1,38 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# OCW: On-Chain Win Platform is a blockchain-based raffle and reward distribution platform connecting users with various types of prize draws through smart contracts on Ethereum.
 
-## Getting Started
+## What It Does
 
-First, run the development server:
+The platform enables multiple types of raffles and prize distributions:
+- Free time-limited raffles
+- Paid entry raffles with growing prize pools
+- Business-focused raffles with fixed prizes
+- Token reward raffles with multiple payment options
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+All raffle mechanics are fully transparent and provably fair, as they operate directly on-chain.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Frontend
+- **Framework**: Next.js with React
+- **Styling**: Tailwind CSS for responsive design
+- **Web3 Integration**: ethers.js for blockchain interaction
+- **State Management**: React Context API
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Smart Contracts
+- **Blockchain**: Ethereum
+- **Development**: Solidity with Hardhat
+- **Testing**: Comprehensive test suite using Chai
+- **Design Pattern**: Modular contract system with specialized raffle types
 
-## Learn More
+## Contract Functionality
 
-To learn more about Next.js, take a look at the following resources:
+### FreeTimerOnChainWin
+Allows users to enter raffles without payment. Winners are selected randomly after a predefined time period expires. Ideal for promotional giveaways.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### NYOnChainWin
+A paid raffle system where users purchase entries with ETH. The prize pool grows with each entry, and the raffle ends either when the target prize amount is reached or when the time expires.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### OCW_USDC_ERC20
+Custom ERC20 token implementation for the platform, used for rewards distribution and potentially as payment for entries.
 
-## Deploy on Vercel
+### OnChainWinB2B
+Business-focused raffle with fixed prize amounts. The contract requires a specific number of entries before selecting a winner, making it suitable for controlled promotions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### TokenOnChainWinPTA
+Advanced raffle that accepts multiple payment methods (ETH, USDC, USDT) and distributes ERC20 token rewards to winners. Offers flexibility for users with different cryptocurrencies.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# ocwtest
-# ocw
+## Security & Fairness
+
+The platform prioritizes:
+- Transparent winner selection using blockchain-based randomness
+- Secure fund management with protection against common attack vectors
+- Fair distribution mechanisms with verifiable on-chain execution
+- Access controls limiting administrative functions to authorized addresses
