@@ -15,13 +15,11 @@ All raffle mechanics are fully transparent and provably fair, as they operate di
 ### Frontend
 - **Framework**: Next.js with React
 - **Styling**: Tailwind CSS for responsive design
-- **Web3 Integration**: ethers.js for blockchain interaction
-- **State Management**: React Context API
+- **Web3 Integration**: ethers / wagmi / viem for blockchain interaction
 
 ### Smart Contracts
-- **Blockchain**: Ethereum
+- **Blockchain**: Base & Scroll
 - **Development**: Solidity with Hardhat
-- **Testing**: Comprehensive test suite using Chai
 - **Design Pattern**: Modular contract system with specialized raffle types
 
 ## Contract Functionality
