@@ -1,10 +1,10 @@
 # OCW Smart Contracts
 
-This repository contains the blockchain technology powering the OCW-Hacken platform - a set of smart contracts that enable transparent, fair, and automated raffles and prize distributions on Ethereum.
+This repository contains the blockchain technology powering the OCW-Hacken platform - a set of smart contracts that enable transparent, fair, and automated raffles and prize distributions on Base & Scroll.
 
 ## Raffle Ecosystem
 
-The OCW-Hacken platform implements multiple specialized raffle types to address different use cases:
+OCW platform implements multiple specialized raffle types to address different use cases:
 
 ### FreeTimerOnChainWin
 **Free Entry, Time-Based Raffle**
@@ -24,9 +24,8 @@ The OCW-Hacken platform implements multiple specialized raffle types to address 
 ### OCW_USDC_ERC20
 **Platform Token Implementation**
 - Standard ERC20 token for reward distribution
-- USDC-compatible interface for familiarity
 - Used as prizes in token-based raffles
-- Can be integrated with external DeFi protocols
+- Basically MockERC20
 
 ### OnChainWinB2B
 **Business-Focused Fixed Prize Raffle**
@@ -68,52 +67,6 @@ The contracts implement multiple security measures:
 - Overflow/underflow prevention with Solidity ^0.8.0
 - Critical function access control through ownership validation
 - State machine patterns to enforce correct operation sequence
-
-## Setup and Development
-
-To set up the development environment:
-
-```bash
-# Install dependencies
-npm install
-
-# Compile contracts
-npx hardhat compile
-```
-
-## Testing
-
-The project includes comprehensive test suites for each contract:
-
-```bash
-# Run all tests
-npx hardhat test
-
-# Run tests for a specific contract
-npx hardhat test test/FreeTimerOnChainWin.test.js
-npx hardhat test test/NYOnChainWin.test.js
-npx hardhat test test/OnChainWinB2B.test.js
-npx hardhat test test/TokenOnChainWinPTA.test.js
-
-# Run tests with gas reporting
-REPORT_GAS=true npx hardhat test
-```
-
-## Deployment
-
-To deploy the contracts to a network:
-
-```bash
-# Start a local node
-npx hardhat node
-
-# Deploy using Hardhat Ignition
-npx hardhat ignition deploy ./ignition/modules/Deploy.js
-```
-
-## Contract Documentation
-
-All contracts include comprehensive NatSpec documentation, providing details about functions, parameters, and behavior. You can generate documentation from these comments using tools like Solidity Documentation Generator.
 
 ## License
 
