@@ -1,6 +1,6 @@
 # OCW Smart Contracts
 
-This repository contains the blockchain technology powering the OCW-Hacken platform - a set of smart contracts that enable transparent, fair, and automated raffles and prize distributions on Base & Scroll.
+This repository contains the blockchain technology powering the OCW platform - a set of smart contracts that enable transparent, fair, and automated raffles and prize distributions on Base & Scroll.
 
 ## Raffle Ecosystem
 
