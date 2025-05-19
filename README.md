@@ -1,4 +1,4 @@
-# OCW: On-Chain Win Platform is a blockchain-based raffle and reward distribution platform connecting users with various types of prize draws through smart contracts on Ethereum.
+# OCW: On-Chain Win Platform is a blockchain-based raffle and reward distribution platform connecting users with various types of prize draws through smart contracts on Base & Scroll.
 
 ## What It Does
 
