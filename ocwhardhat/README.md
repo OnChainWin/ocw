@@ -1,10 +1,17 @@
 # OCW Smart Contracts
 
-This repository contains the blockchain technology powering the OCW-Hacken platform - a set of smart contracts that enable transparent, fair, and automated raffles and prize distributions on Ethereum.
+This repository contains the blockchain technology powering the OCW platform - a set of smart contracts that enable transparent, fair, and automated raffles and prize distributions on Ethereum.
 
 ## Raffle Ecosystem
 
-The OCW-Hacken platform implements multiple specialized raffle types to address different use cases:
+The OCW platform implements multiple specialized raffle types to address different use cases:
+
+### FreeTimerOnChainSelectWinnerCount
+** Free Entry, Time-Based Chainlink VRF Raffle**
+- Users enter without paying any fee
+- Automatic termination after a pre-defined period
+- Random winner selection driven by VRF randomness
+- Ideal for promotional campaigns, community airdrops, and audience engagement
 
 ### FreeTimerOnChainWin
 **Free Entry, Time-Based Raffle**
