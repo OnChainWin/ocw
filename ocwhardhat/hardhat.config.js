@@ -70,17 +70,41 @@ module.exports = {
     },
   },
   solidity: {
-    version: "0.8.24",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 100,
+    compilers: [
+      {
+        version: "0.8.24",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 100,
+          },
+        },
       },
+      {
+        version: "0.8.20",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 100,
+          },
+        },
+      },
+      {
+        version: "0.8.30",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 100,
+          },
+        },
+      },
+    ],
+    settings: {
       outputSelection: {
         "*": {
-          "*": ["abi", "evm.bytecode", "evm.deployedBytecode"]
-        }
-      }
+          "*": ["abi", "evm.bytecode", "evm.deployedBytecode"],
+        },
+      },
     },
   },
   paths: {

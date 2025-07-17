@@ -1,18 +1,18 @@
 // app/api/tasks/route.ts
-import { NextResponse } from "next/server";
-import mongoose from "mongoose";
-import Task from "./tasksschema";
+import { NextResponse } from 'next/server';
+import mongoose from 'mongoose';
+import Task from './tasksschema'; // Büyük T ile import edin
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
+// MongoDB'ye bağlanma
 if (!mongoose.connection.readyState) {
-  mongoose
-    .connect(MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
-    .then(() => console.log("MongoDB bağlantısı başarılı!"))
-    .catch((error) => console.error("MongoDB bağlantı hatası:", error));
+  mongoose.connect(MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB bağlantısı başarılı!"))
+  .catch((error) => console.error("MongoDB bağlantı hatası:", error));
 }
 
 export async function POST(request) {
@@ -21,13 +21,12 @@ export async function POST(request) {
     const { wallet, task, submit } = body;
 
     if (!wallet) {
-      return NextResponse.json(
-        { durum: false, error: "Cüzdan adresi gerekli." },
-        { status: 400 },
-      );
+      return NextResponse.json({ durum: false, error: "Cüzdan adresi gerekli." }, { status: 400 });
     }
 
+    // Görev Tamamlanması
     if (task && !submit) {
+      // Task.findOne (büyük T ile)
       let taskRecord = await Task.findOne({ wallet });
 
       if (taskRecord) {
@@ -46,6 +45,7 @@ export async function POST(request) {
       return NextResponse.json({ durum: true }, { status: 200 });
     }
 
+    // Submit İşlemi
     if (submit) {
       const taskRecord = await Task.findOne({ wallet });
 
@@ -54,60 +54,35 @@ export async function POST(request) {
         await taskRecord.save();
         return NextResponse.json({ durum: true }, { status: 200 });
       } else {
-        return NextResponse.json(
-          { durum: false, error: "Görev kaydı bulunamadı." },
-          { status: 404 },
-        );
+        return NextResponse.json({ durum: false, error: "Görev kaydı bulunamadı." }, { status: 404 });
       }
     }
 
-    return NextResponse.json(
-      { durum: false, error: "Geçersiz istek." },
-      { status: 400 },
-    );
+    return NextResponse.json({ durum: false, error: "Geçersiz istek." }, { status: 400 });
   } catch (error) {
     console.error("Sunucu Hatası:", error);
-    return NextResponse.json(
-      { durum: false, error: "Sunucu hatası." },
-      { status: 500 },
-    );
+    return NextResponse.json({ durum: false, error: "Sunucu hatası." }, { status: 500 });
   }
 }
 
 export async function GET(request) {
   try {
     const url = new URL(request.url);
-    const wallet = url.searchParams.get("wallet");
+    const wallet = url.searchParams.get('wallet');
 
     if (!wallet) {
-      return NextResponse.json(
-        { durum: false, error: "Cüzdan adresi gerekli." },
-        { status: 400 },
-      );
+      return NextResponse.json({ durum: false, error: "Cüzdan adresi gerekli." }, { status: 400 });
     }
 
     const taskRecord = await Task.findOne({ wallet }).lean();
 
     if (taskRecord) {
-      return NextResponse.json(
-        {
-          durum: true,
-          tasksCompleted: taskRecord.tasksCompleted,
-          submit: taskRecord.submit,
-        },
-        { status: 200 },
-      );
+      return NextResponse.json({ durum: true, tasksCompleted: taskRecord.tasksCompleted, submit: taskRecord.submit }, { status: 200 });
     } else {
-      return NextResponse.json(
-        { durum: false, error: "Görev kaydı bulunamadı." },
-        { status: 404 },
-      );
+      return NextResponse.json({ durum: false, error: "Görev kaydı bulunamadı." }, { status: 404 });
     }
   } catch (error) {
     console.error("Sunucu Hatası:", error);
-    return NextResponse.json(
-      { durum: false, error: "Sunucu hatası." },
-      { status: 500 },
-    );
+    return NextResponse.json({ durum: false, error: "Sunucu hatası." }, { status: 500 });
   }
 }

@@ -9,7 +9,7 @@ import { ReferralCodeHandler } from "@/components/ReferralCodeHandler";
 import EventComponent from "@/components/LotteryArea/(base)/(subcomponents)/EventComponent";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import BaseSwitcher from "@/components/LotteryArea/(base)/BaseSwitcher";
-import { WPInfo } from "@/components/WPInfo";
+import WPInfoWithSuspense from "@/components/WPInfo";
 import Community from "@/components/Community";
 
 export default function PlayHome() {
@@ -26,7 +26,7 @@ export default function PlayHome() {
           <div className="flex flex-col gap-4 items-center justify-center">
             {chainId == 534352 ? <BaseSwitcher /> : <EventComponent />}
           </div>
-          <WPInfo />
+          <WPInfoWithSuspense />
           <div className="pt-6 pb-24">
 
           <Community />

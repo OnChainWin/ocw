@@ -57,11 +57,13 @@ export default function TipTapEditor({
       },
     },
     onUpdate: ({ editor }) => {
+      // Preserve line breaks by replacing them with <br> tags
       const html = editor.getHTML().replace(/<p><\/p>/g, "<p><br></p>");
       onChange(html);
     },
   });
 
+  // Update editor content when content prop changes
   useEffect(() => {
     if (editor && content && editor.getHTML() !== content) {
       editor.commands.setContent(content);

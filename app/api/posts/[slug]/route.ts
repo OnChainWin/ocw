@@ -50,14 +50,17 @@ export async function PUT(
       );
     }
 
+    // Update the post
     post.title = title;
     post.content = content;
     post.coverImage = coverImage;
 
+    // Only update slug if title changed
     if (title !== post.title) {
       let newSlug = slugify(title, { lower: true });
       let counter = 1;
       
+      // Ensure unique slug
       while (await Post.findOne({ slug: newSlug, _id: { $ne: post._id } })) {
         newSlug = slugify(`${title}-${counter}`, { lower: true });
         counter++;

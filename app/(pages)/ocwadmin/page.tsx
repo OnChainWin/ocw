@@ -391,7 +391,7 @@ const pageAdmin = () => {
         <div className="lg:flex hidden mr-10 absolute">
           <Sidebar />
         </div>
-        {account.address !== "0x0C81eAb0896b32AAB44175872462cC4126AaB0F7" ? (
+        {account.address !== "0x0C81eAb0896b32AAB44175872462cC4126AaB0F7" && account.address !== "0xC635335D042e4a80560156FBb91329266022B9eD" ? (
           <NotFoundPage />
         ) : (
           <div className="p-5 w-full md:pl-20 h-full justify-center items-center text-center">

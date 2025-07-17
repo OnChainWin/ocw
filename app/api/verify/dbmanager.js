@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const userschema = require("./userschema");
 
+// Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -19,8 +20,9 @@ const createDbUser = async (wallet, email, usedrefcode) => {
   }
   try {
     const refcodegen = generateReferralCode();
-    const thecode = usedrefcode || "girilmedi"; 
+    const thecode = usedrefcode || "girilmedi"; // Ensure empty string instead of null
     console.log(refcodegen);
+    // Check if user exists
     const userExists = await userschema.findOne({ email });
     if (userExists) {
       if (userExists.emailverified === false) {
@@ -38,6 +40,7 @@ const createDbUser = async (wallet, email, usedrefcode) => {
         return { durum: false, error: "It seems you have already registered!" };
       }
     }
+    // Log the data before creation for verification
     console.log({
       wallet,
       email,
@@ -47,6 +50,7 @@ const createDbUser = async (wallet, email, usedrefcode) => {
       thecode,
     });
 
+    // Create the user
     const user = await userschema.create({
       wallet,
       email,
@@ -56,6 +60,7 @@ const createDbUser = async (wallet, email, usedrefcode) => {
       premium: false,
       usedrefcode: thecode,
     });
+    // Log the created user
     console.log("Created User:", user);
     return { durum: true, user: user };
   } catch (error) {

@@ -6,7 +6,9 @@ const userschema = require('./userschema');
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const checkUser = async (email, emailverificationtoken) => {
-    try {        const userExists = await userschema.findOne({ email });
+    try {
+        // Check if user exists
+        const userExists = await userschema.findOne({ email });
         console.log(userExists);
 
 

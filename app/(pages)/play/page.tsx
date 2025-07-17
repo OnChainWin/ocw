@@ -5,7 +5,7 @@ import Grids from "@/components/LotteryArea/(scroll)/Grids";
 import Community from "@/components/Community";
 import Popup from "@/components/Popup";
 import { useAccount, useChainId } from "wagmi";
-import { WPInfo } from "@/components/WPInfo";
+import WPInfoWithSuspense from "@/components/WPInfo";
 import RequestETH from "@/components/RequestETH";
 import VerifyEmailArea from "@/components/VerifyEmail";
 import { Suspense } from "react";
@@ -26,7 +26,7 @@ export default function PlayHome() {
           <RequestETH />
           {/* <NewYearComponents /> */}
           {chainId == 534352 ? <Grids /> : <GridsBase />}
-          <WPInfo />
+          <WPInfoWithSuspense />
           <HeyYou2 />
           {/* <Roadmap /> */}
           <div className="py-24">

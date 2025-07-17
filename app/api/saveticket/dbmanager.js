@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const ticketschema = require("./ticketschema");
 
+// Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useUnifiedTopology: true });
 
 const createTicket = async (

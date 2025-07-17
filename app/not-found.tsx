@@ -15,7 +15,7 @@ const NotFoundPage = () => {
         </p>
         <div className="flex justify-center space-x-4">
           <Link href="/">
-            <p className="px-6 py-3 bg-gray-700 text-white font-semibold rounded-md shadow-md hover:bg-gray-800 transition duration-300 ease-in-out">
+            <p className="px-6 py-3 bg-black text-white font-semibold rounded-md shadow-md hover:shadow-[#000000] transition duration-300 ease-in-out">
               Go Home
             </p>
           </Link>

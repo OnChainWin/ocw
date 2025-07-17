@@ -9,7 +9,7 @@ import Spinner from "@/components/Spinner";
 import CallToAction from "@/components/tests/CallToAction";
 import Features from "@/components/tests/Features";
 import VerifyEmailArea from "@/components/VerifyEmail";
-import { WPInfo } from "@/components/WPInfo";
+import WPInfoWithSuspense from "@/components/WPInfo";
 import React, { Suspense } from "react";
 
 export default async function Home() {
@@ -26,15 +26,15 @@ export default async function Home() {
           <OfferingsSection />
           <Features />
           <UsSection />
-          <WPInfo />
+          <WPInfoWithSuspense />
           <BlogSection />
           <CallToAction />
           <Footer />
-          {/* <div className="md:flex hidden mr-10 fixed"> */}
-          {/* <Sidebar /> */}
-          {/* http://onchainwin.com/?ref=berke */}
-          {/* <GridsTest />  bunu genişleticem */}
-          {/* </div> */}
+          <div className="md:flex hidden mr-10 fixed">
+            {/* <Sidebar /> */}
+            {/* http://onchainwin.com/?ref=berke */}
+            {/* <GridsTest />  bunu genişleticem */}
+          </div>
 
           <VerifyEmailArea />
         </div>

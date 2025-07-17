@@ -334,7 +334,7 @@ const amountCostB2B = parseFloat(entryCostInWeiB2B);
     <div>
       <section className="dark:bg-[#fdffec] bg-[#2b2b2b] pb-12">
         <div className="mx-auto max-w-screen-2xl py-2 dark:text-black text-white">
-          <div className="mx-auto max-w-lg text-center">
+          <div className="mx-auto max-w-lg text-center my-4">
             <h1 className="text-3xl font-bold sm:text-4xl">
               <TypewriterComponent
                 options={{
@@ -350,7 +350,7 @@ const amountCostB2B = parseFloat(entryCostInWeiB2B);
             </h1>
           </div>
 
-          <div className="mt-4 grid grid-cols-1 text-black max-md:mx-2 gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-4 grid grid-cols-1 text-black max-md:mx-2 gap-8 lg:grid-cols-3">
             <Link href="/ocw">
               <div className="block rounded-tr-[76px] rounded-bl-[76px] p-4 shadow-xl transition duration-500 ease-in-out hover:shadow-blue-600/40 bg-gradient-to-br from-blue-600 via-blue-400 to-blue-600">
                 <span className="mt-1 text-3xl font-semibold">
@@ -746,8 +746,10 @@ const amountCostB2B = parseFloat(entryCostInWeiB2B);
                 </button>
               </div>
             </Link>
-            {/* 6. partnership raffle */}-
-            <Link href="/b2b">
+
+            <div />
+            {/* 6. partnership raffle */}
+            {/* <Link href="/b2b">
               <div className="block rounded-tr-[76px] rounded-bl-[76px] p-4 shadow-xl transition duration-500 ease-in-out hover:shadow-blue-600/40 bg-gradient-to-br from-blue-600 via-blue-400 to-blue-600">
                 <span className="mt-1 text-3xl font-semibold">
                   Prize: 1 GoMining NFT
@@ -806,7 +808,7 @@ const amountCostB2B = parseFloat(entryCostInWeiB2B);
                   </p>
                 </button>
               </div>
-            </Link>
+            </Link> */}
             {/* yeni 6. partnership raffle */}
             {/* <Link href="/partnershipocw">
               <div className="block rounded-tr-[76px] rounded-bl-[76px] p-4 shadow-xl transition duration-500 ease-in-out hover:shadow-blue-600/40 bg-gradient-to-br from-blue-600 via-blue-400 to-blue-600">

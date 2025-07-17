@@ -33,6 +33,7 @@ export async function POST(req, res) {
     console.log({ data });
     return Response.json({ durum: true, user: cuser.user });
   } else {
+    // If cuser mail send mail again
     if(cuser.mail){
       const { data, error } = await resend.emails.send({
         from: "support@onchainwin.com",

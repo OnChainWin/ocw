@@ -15,9 +15,11 @@ export async function POST(req: Request) {
       );
     }
 
+    // Create a unique slug
     let slug = slugify(title, { lower: true });
     let counter = 1;
     
+    // Check if slug exists and append number if needed
     while (await Post.findOne({ slug })) {
       slug = slugify(`${title}-${counter}`, { lower: true });
       counter++;
